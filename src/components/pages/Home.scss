@@ -1,0 +1,92 @@
+@import "../../resources/common.scss";
+.Home {
+    margin: 0;
+    height: 100%;
+    position: relative;
+    scrollbar-width: none;
+    .Tv {
+        height: 100%;
+        position: absolute;
+        left: 53.5px;
+        &_img-tv {
+            position: absolute;
+            width: 707px;
+            top: 125px;
+            z-index: 1;
+        }
+        &_img-tv-light {
+            position: absolute;
+            width: 2097px;
+            height: 52%;
+            bottom: 0;
+            left: 223px;
+            z-index: 0;
+        }
+    }
+    .Home_div-title {
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        flex-wrap: wrap;
+        width: 507px;
+        left: 785px;
+        top: 85px;
+        h1 {
+            height: 141px;
+            width: 312px;
+            font-family: OTOmniGothicL;
+            font-size: 60px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: #00b46a;
+            font-size: 60px;
+            margin: 0;
+            b {
+                font-family: OTOmniGothicB;
+            }
+        }
+        img {
+            width: 51.3px;
+            height: 56.3px;
+            margin: 11px 17px;
+        }
+        .Home_div-search {
+            width: 507px;
+            height: 80px;
+            border: solid 2px #00b46a;
+            input {
+                font-family: OTOmniGothicM;
+                font-size: 24px;
+                color: #00b46a;
+                border: none;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 76px;
+                width: 450px;
+                // line-height: 507px;
+                &::placeholder {
+                    color: #00b46a;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+html,
+body,
+#root {
+    // scrollbar-hei: 0;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

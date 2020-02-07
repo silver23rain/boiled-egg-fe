@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "OTOmniGothicL";
+    src: url("../font/210옴니고딕020.ttf");
+}
+
+@font-face {
+    font-family: "OTOmniGothicM";
+    src: url("../font/210옴니고딕030.ttf");
+}
+
+@font-face {
+    font-family: "OTOmniGothicB";
+    src: url("../font/210옴니고딕040.ttf");
+}
+
+@font-face {
+    font-family: "OTOmniGothicH";
+    src: url("../font/210옴니고딕050.ttf");
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    height: 100%;
+}
