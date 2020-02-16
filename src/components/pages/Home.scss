@@ -55,18 +55,25 @@
             margin: 11px 17px;
         }
         .Home_div-search {
+            font-family: OTOmniGothicM;
+            font-size: 24px;
+            color: #00b46a;
             width: 507px;
             height: 80px;
+            padding: 0 23px;
+            margin-top: 22px;
+            line-height: 80px;
             border: solid 2px #00b46a;
+            background-image: url("../../resources/images/mainPage/search_icon.png");
+            background-repeat: no-repeat;
+            background-position: 95% 50%;
+            cursor: pointer;
             input {
                 font-family: OTOmniGothicM;
-                font-size: 24px;
-                color: #00b46a;
                 border: none;
                 font-weight: normal;
                 font-stretch: normal;
                 font-style: normal;
-                line-height: 76px;
                 width: 450px;
                 // line-height: 507px;
                 &::placeholder {
@@ -78,6 +85,65 @@
             }
         }
     }
+    .Best {
+        position: absolute;
+        display: flex;
+        left: 910px;
+        height: 60%;
+        bottom: 0%;
+        .Best_div {
+            display: flex;
+            width: 725px;
+            &-info {
+                display: flex;
+                position: absolute;
+                height: 73%;
+                margin-left: 50px;
+                z-index: 1;
+                &-title {
+                    width: 110px;
+                    height: 257px;
+                    max-height: 2.4em;
+                    margin-left: 16px;
+                    margin-top: 50%;
+                    font-size: 28px;
+                    line-height: 1.61;
+                    color: #ffffff;
+                    font-weight: normal;
+                    line-height: 1.61;
+                    font-family: OTOmniGothicM;
+                }
+            }
+        }
+        h3 {
+            margin: 0;
+            font-family: OTOmniGothicH;
+            font-size: 28px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.61;
+            letter-spacing: normal;
+            text-align: left;
+            color: #50231b;
+        }
+        &_img-book {
+            height: 100%;
+        }
+        &_book-bg {
+            position: absolute;
+            top: 20px;
+            height: 90%;
+            img {
+                position: absolute;
+                height: 100%;
+                z-index: 0;
+            }
+            &-dot {
+                left: 80px;
+            }
+        }
+    }
     &::-webkit-scrollbar {
         display: none;
     }
@@ -85,7 +151,6 @@
 html,
 body,
 #root {
-    // scrollbar-hei: 0;
     &::-webkit-scrollbar {
         display: none;
     }

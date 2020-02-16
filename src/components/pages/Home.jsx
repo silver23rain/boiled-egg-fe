@@ -8,12 +8,15 @@ import Header from "../Common/header.jsx";
 import tv from "../../resources/images/mainPage/tv.png";
 import tvLight from "../../resources/images/mainPage/tv_light.png";
 import logoSymbol from "../../resources/images/mainPage/logo_symbol.png";
+import bookSample from "../../resources/images/mainPage/book_sample.png";
+import dot from "../../resources/images/mainPage/dot_red.png";
+import circle from "../../resources/images/mainPage/circle.svg";
 import "./Home.scss";
 const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 const Home = () => {
     const preventDefaultForScrollKeys = e => {
         if (keys[e.keyCode]) {
-            this.preventDefault(e);
+            preventDefault(e);
             return false;
         }
     };
@@ -40,7 +43,7 @@ const Home = () => {
         window.scrollBy(20 * direction, 0);
     };
     return (
-        <main className="Home">
+        <main className="Home" onWheel={handleScroll}>
             <Header />
             <div className="Home_div-title">
                 <h1>
@@ -48,18 +51,73 @@ const Home = () => {
                     가까운 <b>책방</b>
                 </h1>
                 <img className="" src={logoSymbol}></img>
-                <div className="Home_div-search">
-                    <input
-                        type="text"
-                        className=""
-                        placeholder='"지금당장 읽고싶은 책"'
-                    />
-                </div>
+                <div className="Home_div-search">"지금당장 읽고싶은 책"</div>
             </div>
-
-            <div className="Tv" onWheel={handleScroll}>
+            <div className="Tv">
                 <img className="Tv_img-tv" src={tv}></img>
                 <img className="Tv_img-tv-light" src={tvLight}></img>
+            </div>
+            <div className="Best">
+                <div className="Best_div">
+                    <h3>
+                        가장 <br />
+                        인기있는
+                        <br />
+                        도서
+                    </h3>
+                    <div>
+                        <div className="Best_div-info">
+                            <img className="Best_img-book" src={bookSample} />
+                            <span className="Best_div-info-title">
+                                sksmkmkdsfskfsjksjkfdj
+                            </span>
+                        </div>
+                        <div className="Best_book-bg">
+                            <img src={circle} />
+                            <img src={dot} className="Best_book-bg-dot" />
+                        </div>
+                    </div>
+                </div>
+                <div className="Best_div">
+                    <h3>
+                        가장 <br />
+                        인기있는
+                        <br />
+                        도서
+                    </h3>
+                    <div>
+                        <div className="Best_div-info">
+                            <img className="Best_img-book" src={bookSample} />
+                            <span className="Best_div-info-title">
+                                sksmkmkdsfskfsjksjkfdj
+                            </span>
+                        </div>
+                        <div className="Best_book-bg">
+                            <img src={circle} />
+                            <img src={dot} className="Best_book-bg-dot" />
+                        </div>
+                    </div>
+                </div>
+                <div className="Best_div">
+                    <h3>
+                        가장 <br />
+                        인기있는
+                        <br />
+                        도서
+                    </h3>
+                    <div>
+                        <div className="Best_div-info">
+                            <img className="Best_img-book" src={bookSample} />
+                            <span className="Best_div-info-title">
+                                sksmkmkdsfskfsjksjkfdj
+                            </span>
+                        </div>
+                        <div className="Best_book-bg">
+                            <img src={circle} />
+                            <img src={dot} className="Best_book-bg-dot" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     );
