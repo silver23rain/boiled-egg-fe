@@ -6,6 +6,7 @@ import Header from "./Common/header";
 import Signup from "./LoginOrSignup/Signup";
 import ErrorPage from "./pages/ErrorPage";
 import RegisterBook from "./Register/RegisterBook";
+import SelectBookgenre from "./Register/SelectBookgenre";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/header" component={Header} />
       <Route path="/signup" component={Signup} />
       <Route path="/registerBook" component={RegisterBook} />
+      <Route path="/selectbookgenre" component={SelectBookgenre} />
       <Route component={ErrorPage} />
     </Switch>
   );

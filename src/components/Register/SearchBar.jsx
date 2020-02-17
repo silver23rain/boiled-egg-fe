@@ -1,21 +1,37 @@
-import React,{Fragment} from "react";
+import React,{Fragment, Component} from "react";
 import styled from "styled-components";
 import appleFont from '../../font/AppleSDGothicNeoM.ttf';
 
+class SearchBar extends Component {
+    state = {text: ''};
 
-const Home = () => {
-  return (
-    <Fragment>
-        <SearchTitle>
-            1. 등록할 도서를 정해주세요.
-        </SearchTitle>
-            <Span/>
-                <SearchBox type="text" style={{outline: 'none', color:'black'}}/>
-                    <SearchButton>검색</SearchButton>
+    onFormSubmit = e => {
+        console.log(this.state.text);
+        e.preventDefault();
+        this.props.onSubmit(this.state.text);
         
-    </Fragment>
-  );
-};
+    }
+
+    render(){
+        return(
+            <Fragment>
+            <SearchTitle>
+                1. 등록할 도서를 정해주세요.
+            </SearchTitle>
+                <Span/>
+                    <form onSubmit = {this.onFormSubmit}>
+                    <SearchBox type="text" value={this.state.text} 
+                    onChange={(e) => this.setState({text: e.target.value})} style={{outline: 'none', color:'black'}}/>
+                        <SearchButton>검색</SearchButton>
+                    </form>
+            </Fragment>
+    
+        );
+    }
+       
+}
+
+
 const Span = styled.div`
     background-color: #ffde2b;
     color: #000000;
@@ -24,7 +40,7 @@ const Span = styled.div`
     position: absolute;
     top: 468px; 
     left: 392px;
-    z-index:3;
+    z-index:1;
     `;
 const SearchButton = styled.button`
     position: absolute;
@@ -38,6 +54,7 @@ const SearchButton = styled.button`
     z-index: 4;
     color: white;
     font-size: 24px;
+    outline:0;
 `;
 const SearchTitle = styled.div`
     font-size: 30px;
@@ -46,7 +63,8 @@ const SearchTitle = styled.div`
     top: 464px; 
     left: 363px;
     font-weight: bold;
-    z-index: 4;
+    z-index: 2;
+    width:384px;
 `;
 const SearchBox = styled.input`
     position:absolute;
@@ -69,4 +87,4 @@ const SearchBox = styled.input`
 
 `;
 
-export default Home;
+export default SearchBar;

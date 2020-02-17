@@ -13,6 +13,9 @@ const imagesPath = {
   on: open_arrow,
   off: close_arrow
 }
+// const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+// const username = userInfo.username;
+// const useremail = userInfo.useremail;
 
 class Header extends Component{
   
@@ -20,18 +23,55 @@ class Header extends Component{
     super(props);
     this.state = {
       isToggleOn: true,
+      isLoginOn: false,
     };
     this.doSlide = this.doSlide.bind(this);
+    this.logout = this.logout.bind(this);
     
+  }
+  componentDidMount(){
+    if((localStorage.getItem("userInfo")) === null){
+      this.state.isLoginOn = false;
+      this.setState((prevState) => ({
+        isLoginOn: !prevState.isLoginOn,
+      })) // 로그인 표시 
+      console.log("로컬스토리지에 값이 존재하지 않음");
+      console.log(this.state.isLoginOn);
+
+    }else { 
+      //this.state.isLoginOn= true;
+      this.setState((prevState) => ({
+        isLoginOn: !prevState.isLoginOn,
+      })) 
+      console.log("로컬스토리지에 값이 존재함" + this.state.isLoginOn);
+    }
   }
   
   doSlide = () =>{
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn,
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn,
     }));
    }
-  
+  logout = () =>{
+    if(this.setState.isLoginOn === true){  
+      console.log("로그인 버튼누르면 로그인화면으로 이동"+this.state.isLoginOn);  
 
+     // window.location.href = 'https://localhost:3000/login';
+      //window.location.assign('https://localhost:3000/login');
+      this.setState(prevState => ({
+        isLoginOn: prevState.isLoginOn,
+      }))
+     
+    }else{ //로컬 스토리지에 값이 존재함
+      console.log("로그아웃 버튼 누르면 로그인버튼으로 바뀜 false가 되어야함"+this.state.isLoginOn);  
+      this.setState(prevState => ({
+      isLoginOn: !prevState.isLoginOn,
+    }));
+    localStorage.removeItem("userInfo");
+    console.log("logintoggle이 true즉 로그인으로 바뀜 "+this.state.isLoginOn);
+    } 
+  }
+ 
   getImageName = () => this.state.isToggleOn ? 'on' : 'off';
 
   render(){
@@ -47,9 +87,7 @@ class Header extends Component{
           <Button src ={imagesPath[imageName]} onClick={this.doSlide}/>
           <Menubar/> 
           
-          <Link to = "login">
-            <Login>로그인</Login>
-          </Link>
+          <Login onClick={this.logout}>{this.state.isLoginOn? '로그인' : '로그아웃'}</Login>
           <Container>
             <MenuItem>
               <Link to="/" style={{textDecoration: 'none'}}>
@@ -97,7 +135,7 @@ const Nav = styled.div`
   transition-property: left;
   transition-duration: 0.8s;
   transition-timing-function: ease;
-  z-index: ${props=>props.isToggleOn? "1":"100"};
+  z-index: ${props=>props.isToggleOn? "6":"100"};
 
 `;
 
@@ -124,6 +162,7 @@ const Menubar = styled.img.attrs({
   width: 710.3px;
   height: 1080px;
   margin-right:-100px;
+  z-index: ${props=>props.isToggleOn? "6":"100"};
 `;
 const Login = styled.p`
   position: absolute;
@@ -132,7 +171,7 @@ const Login = styled.p`
   font-size: 21px;
   border-bottom: 2.8px solid #00b46a;
   padding-bottom: 3px;
-  width: 70px;
+  width: ${props=>props.isLoginOn? "70":"82"};
   text-align: center;
  `;
 const Container = styled.nav`

@@ -21,7 +21,8 @@ const Logoimg = styled.img.attrs({
     left: 28.1px;
     top: 43.2px;
     width:50px;
-    z-index: 1;
+    z-index: ${props=>props.isToggleOn? "7":"1"};
+    ;
 `;
 
 

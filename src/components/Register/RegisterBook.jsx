@@ -1,41 +1,64 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import {Link} from 'react-router-dom';
 import Header from '../Common/header';
 import GreenCircle from '../../img/GreenCircle.png';
 import YellowCircle from '../../img/YellowCircle.png';
 import styled from "styled-components";
 import SearchBar from './SearchBar';
 import Next from '../../img/next.png';
-//import axios from "axios";
+import font from '../../font/210옴니고딕020.ttf';
+import BooksearchList from './BooksearchList';
+import Logo from "../Common/Logo";
+import axios from 'axios';
 
+//import axios from "axios";
+const http = 'http://boiled-egg-api.jaeyeonling.com:8080';
 class RegisterBook extends Component {
-    /*state={
+    state={
         books:[]
     };
-    getBooks = async() => {
-        const{
-            data:{
-                params:{books}
-            }
-        } = await axios.get(
-            "http://boiled-egg-api.jaeyeonling.com:8080/books/search?type=TITLE&value=Hello");
-            this.setState({books});
-    };
     
-    componentDidMount(){
-        this.getBooks();
-    }*/
+    onSearchSubmit = async text =>{
+        console.log("연동시작");
+        console.log(text);
+        const response = await axios.get(http+'/books/search',{
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                },
+            params: {
+                type: 'TITLE',
+                value: text
+            }
+        }).then(response =>{
+            console.log(response);
+        }).catch(error=>{
+            console.log(error);
+        });
+        console.log("response:"+response);
+        this.setState({books: response});
+    }
+   
+    
+   
     render() {
         //const {books} = this.state;
         return (
-            <div>
+            <Fragment>
+                <Logo/>
                 <Header/>
                 <Button>
                     <TB>도서등록하기</TB>
                 </Button>
-                <SearchBar/>
+                <SearchBar onSubmit={this.onSearchSubmit} style={{zIndex:1}}/>
                 <CircleYellow/>
                 <CircleGreen/>
-                <ResultBox/> 
+                <ResultBox>
+                    <BooksearchList books={this.state.books}/>
+                    <ResultContents>
+                        검색결과가 없습니다.
+                    </ResultContents>
+                </ResultBox> 
                 {/*<BookList>
                     {books.map(book=>(
                         <BookList
@@ -44,8 +67,10 @@ class RegisterBook extends Component {
                         />
                     ))}
                     </BookList> */}
-                <Nextbtn/>
-            </div>
+                <Link to="/selectbookgenre">
+                    <Nextbtn/>
+                </Link>
+            </Fragment>
         );
     }
 }
@@ -59,6 +84,20 @@ class RegisterBook extends Component {
     top:0px;
     z-index:100;
 `;*/
+const ResultContents = styled.div`
+    @font-face {
+        font-family: '210옴니고딕020';
+        src: url(${font}) format('truetype');
+     }
+    font-size: 26px;
+    font-family: '210옴니고딕020';
+    color: #707070;
+    position: relative;
+    top: 524px;
+    right: -142px;
+    
+`;
+
 const Button = styled.button`
     position: absolute;
     top:422px;
@@ -70,6 +109,7 @@ const Button = styled.button`
     border: solid 3px #50231b;
     background-color: #ffffff;
     text-algin: center;
+    outline:0;
 `;
 
 const TB = styled.div`
@@ -81,7 +121,7 @@ const TB = styled.div`
     color: #50231b;
     font-weight: bold;
     z-index:3;
-
+  
 `;
 
 const CircleGreen = styled.img.attrs({
@@ -117,4 +157,5 @@ const Nextbtn = styled.img.attrs({
     top: 899px;
     left: 1771px;
 
-`;export default RegisterBook;
+`;
+export default RegisterBook;
