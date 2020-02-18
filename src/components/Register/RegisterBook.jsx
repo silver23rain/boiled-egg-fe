@@ -11,9 +11,10 @@ import BooksearchList from './BooksearchList';
 import Logo from "../Common/Logo";
 import axios from 'axios';
 
-//import axios from "axios";
 const http = 'http://boiled-egg-api.jaeyeonling.com:8080';
+
 class RegisterBook extends Component {
+    
     state={
         books:[]
     };
@@ -31,18 +32,22 @@ class RegisterBook extends Component {
                 value: text
             }
         }).then(response =>{
-            console.log(response);
+            console.log(response.data);
+            this.setState({books: response.data})
         }).catch(error=>{
             console.log(error);
         });
-        console.log("response:"+response);
-        this.setState({books: response});
+        // this.setState({
+        //     books:response,
+        // })
+        
+        console.log(this.state.books);
     }
    
     
    
     render() {
-        //const {books} = this.state;
+        const {books=[]} = this.state;
         return (
             <Fragment>
                 <Logo/>
@@ -54,19 +59,11 @@ class RegisterBook extends Component {
                 <CircleYellow/>
                 <CircleGreen/>
                 <ResultBox>
-                    <BooksearchList books={this.state.books}/>
+                    <BooksearchList books={books}/>
                     <ResultContents>
                         검색결과가 없습니다.
                     </ResultContents>
-                </ResultBox> 
-                {/*<BookList>
-                    {books.map(book=>(
-                        <BookList
-                        title={book.title}
-                        thumbnail={book.thumbnail}
-                        />
-                    ))}
-                    </BookList> */}
+                </ResultBox>
                 <Link to="/selectbookgenre">
                     <Nextbtn/>
                 </Link>
@@ -148,7 +145,7 @@ const ResultBox = styled.div`
      left: 1133px;
      top:0px;
      background-color: #fffbeb;
-     z-index:3;
+     z-index:1;
 `;
 const Nextbtn = styled.img.attrs({
     src: Next,
