@@ -31,7 +31,7 @@ class SelectBookgenre extends Component {
                 <BackgroundRedCircle/>
                 <BackgroundYelloCircle/>
                 <BackgroundYelloPath/>
-                <Link to="/selectbookgenre">
+                <Link to="/rentalinfo">
                     <Nextbtn/>
                 </Link>
                     <Prevbtn onClick={this.goBack}/>

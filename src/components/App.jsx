@@ -7,6 +7,7 @@ import Signup from "./LoginOrSignup/Signup";
 import ErrorPage from "./pages/ErrorPage";
 import RegisterBook from "./Register/RegisterBook";
 import SelectBookgenre from "./Register/SelectBookgenre";
+import RegisterRentalInfo from "./Register/RegisterRentalInfo";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/signup" component={Signup} />
       <Route path="/registerBook" component={RegisterBook} />
       <Route path="/selectbookgenre" component={SelectBookgenre} />
+      <Route path="/rentalInfo" component={RegisterRentalInfo} />
       <Route component={ErrorPage} />
     </Switch>
   );
