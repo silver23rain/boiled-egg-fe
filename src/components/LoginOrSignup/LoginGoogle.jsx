@@ -14,6 +14,7 @@ class GoogleLogin extends Component{
  
   componentDidMount() {
 /* global gapi */
+    setTimeout(()=>{
     window.gapi.load('auth2', () => {
 
       this.auth2 = gapi.auth2.init({
@@ -67,13 +68,10 @@ class GoogleLogin extends Component{
         }
       });
     });  
- 
+  },1000)
 
    
   }
-
-  
-
   onLoginFailed(err) {
     this.setState({
       isSignedIn: false,

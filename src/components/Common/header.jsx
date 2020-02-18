@@ -18,33 +18,36 @@ const imagesPath = {
 // const useremail = userInfo.useremail;
 
 class Header extends Component{
-  
+  // state={
+  //   isLoginOn:false,
+  // }
   constructor(props){
     super(props);
-    this.state = {
-      isToggleOn: true,
-      isLoginOn: false,
-    };
     this.doSlide = this.doSlide.bind(this);
     this.logout = this.logout.bind(this);
+    this.state = {
+      isToggleOn: true,
+      isLoginOn: true,
+      
+    };
+  
     
   }
   componentDidMount(){
-    if((localStorage.getItem("userInfo")) === null){
-      this.state.isLoginOn = false;
-      this.setState((prevState) => ({
-        isLoginOn: !prevState.isLoginOn,
-      })) // 로그인 표시 
-      console.log("로컬스토리지에 값이 존재하지 않음");
-      console.log(this.state.isLoginOn);
+  
+    setTimeout(()=>{
+      if((localStorage.getItem("userInfo")) === null){
 
-    }else { 
-      //this.state.isLoginOn= true;
-      this.setState((prevState) => ({
-        isLoginOn: !prevState.isLoginOn,
-      })) 
-      console.log("로컬스토리지에 값이 존재함" + this.state.isLoginOn);
-    }
+        this.setState((prevState) => ({
+          isLoginOn: !prevState.isLoginOn,
+        })) 
+      
+      }else {
+        
+ console.log("로컬스토리지에 값이 존재함" + this.state.isLoginOn);
+      }
+    },1000)
+   
   }
   
   doSlide = () =>{
@@ -53,22 +56,23 @@ class Header extends Component{
     }));
    }
   logout = () =>{
-    if(this.setState.isLoginOn === true){  
-      console.log("로그인 버튼누르면 로그인화면으로 이동"+this.state.isLoginOn);  
+    if(this.state.isLoginOn === false){  
 
-     // window.location.href = 'https://localhost:3000/login';
-      //window.location.assign('https://localhost:3000/login');
-      this.setState(prevState => ({
-        isLoginOn: prevState.isLoginOn,
-      }))
+     window.location.assign("http://localhost:3000/login");
+
+      this.setState((prevState,props) => ({
+        isLoginOn: !prevState.isLoginOn
+      }));
      
     }else{ //로컬 스토리지에 값이 존재함
-      console.log("로그아웃 버튼 누르면 로그인버튼으로 바뀜 false가 되어야함"+this.state.isLoginOn);  
-      this.setState(prevState => ({
+      console.log(this.state.isLoginOn);
+
+      this.setState((prevState) => ({
       isLoginOn: !prevState.isLoginOn,
     }));
+    
     localStorage.removeItem("userInfo");
-    console.log("logintoggle이 true즉 로그인으로 바뀜 "+this.state.isLoginOn);
+    window.location.assign("http://localhost:3000/");
     } 
   }
  
@@ -87,7 +91,7 @@ class Header extends Component{
           <Button src ={imagesPath[imageName]} onClick={this.doSlide}/>
           <Menubar/> 
           
-          <Login onClick={this.logout}>{this.state.isLoginOn? '로그인' : '로그아웃'}</Login>
+          <Login onClick={this.logout}>{this.state.isLoginOn? '로그아웃' : '로그인'}</Login>
           <Container>
             <MenuItem>
               <Link to="/" style={{textDecoration: 'none'}}>
