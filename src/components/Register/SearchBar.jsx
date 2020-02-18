@@ -70,7 +70,7 @@ const SearchBox = styled.input`
     position:absolute;
     top: 520px; 
     left: 364px;
-    width: 647px;
+    width: 623px;
     height: 100px;
     border: solid 3px #4bab3f;
     background-color: #ffffff;

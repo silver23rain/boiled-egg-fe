@@ -6,6 +6,8 @@ import Prev from '../../img/prev.png';
 import font from '../../font/210옴니고딕040.ttf';
 import RentalPlaceInput from './RentalPlaceInput';
 import ReturnPlaceInput from './ReturnPlaceInput';
+import Calendar from './Calendar';
+import omniFont from '../../font/210옴니고딕040.ttf';
 
 class RegisterRentalInfo extends Component {
     goBack = () =>{
@@ -25,11 +27,31 @@ class RegisterRentalInfo extends Component {
                 </SearchTitle>
                 <Span/>
                 <RentalPlaceInput/>
+                <ReturnPlaceInput/>
+                <Calendar/>
                 <Prevbtn onClick={this.goBack}/>
+                <CompleteButton>등록완료</CompleteButton>
             </Fragment>
         );
     }
 }
+const CompleteButton = styled.button`
+    width: 138px;
+    height: 64px;
+    position: absolute;
+    top: 885px;
+    left: 1725px;
+    background-color:#ff2e41;
+    color: #ffffff;
+    @font-face {
+        font-family: '210옴니고딕040.ttf';
+        src: url(${omniFont}) format('truetype');
+     }
+     font-family: '210옴니고딕040.ttf';
+    font-size: 24px;
+    outline:0;
+    border:0;
+`;
 const Prevbtn = styled.img.attrs({
     src: Prev,
   })`
