@@ -2,10 +2,16 @@ import React,{Fragment} from 'react';
 import styled from 'styled-components';
 import font from '../../font/210옴니고딕040.ttf';
 
+
+function handleClick(key){
+    console.log("hi");
+    console.log("hhh"+key);
+}
 const BooksearchList = props => {
+    
     const books = props.books.map((book, index)=>{
         return (
-            <Book key={index}> 
+            <Book key={index} onClick={(index) => handleClick(index)}> 
                 <Image src={book.thumbnail} alt="img"/>
                 <Title>{book.title}</Title>
                 <Author>{book.authors}지음 / {book.publisher}</Author>

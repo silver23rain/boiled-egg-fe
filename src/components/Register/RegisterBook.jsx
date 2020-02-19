@@ -14,7 +14,13 @@ import axios from 'axios';
 const http = 'http://boiled-egg-api.jaeyeonling.com:8080';
 
 class RegisterBook extends Component {
-    
+    constructor(props){
+        super(props);
+        this.onClick = this.onClick.bind(this);
+        this.state = {
+          isToggleOn: true,   
+        };
+    }
     state={
         books:[]
     };
@@ -34,17 +40,19 @@ class RegisterBook extends Component {
         }).then(response =>{
             console.log(response.data);
             this.setState({books: response.data})
+            this.setState((prevState) => ({
+                isToggleOn: !prevState.isToggleOn
+              }));
         }).catch(error=>{
             console.log(error);
         });
-        // this.setState({
-        //     books:response,
-        // })
         
         console.log(this.state.books);
     }
    
-    
+    onClick(){
+        console.log("onclick");
+    }
    
     render() {
         const {books=[]} = this.state;
@@ -59,10 +67,13 @@ class RegisterBook extends Component {
                 <CircleYellow/>
                 <CircleGreen/>
                 <ResultBox>
-                    <BooksearchList books={books}/>
-                    <ResultContents>
-                        검색결과가 없습니다.
-                    </ResultContents>
+                    {
+                        this.state.isToggleOn === true
+                        ? <ResultContents>
+                            검색결과가 없습니다.
+                          </ResultContents>
+                        : <BooksearchList books={books}/>
+                    }
                 </ResultBox>
                 <Link to="/selectbookgenre">
                     <Nextbtn/>

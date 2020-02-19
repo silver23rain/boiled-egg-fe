@@ -164,7 +164,7 @@ const Menubar = styled.img.attrs({
   src:menubar
 })`
   width: 710.3px;
-  height: 1080px;
+  height: 100%;
   margin-right:-100px;
   z-index: ${props=>props.isToggleOn? "6":"100"};
 `;
