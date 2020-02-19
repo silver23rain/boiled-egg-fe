@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35.414" height="36.587" viewBox="0 0 35.414 36.587">
+    <defs>
+        <style>
+            .cls-1{fill:none;stroke:#50231b;stroke-miterlimit:10;stroke-width:2px}
+        </style>
+    </defs>
+    <g id="화살표" transform="translate(-3052.312 -892.215)">
+        <path id="패스_128" d="M3068.726 892.922l17.586 17.586-17.586 17.586" class="cls-1" data-name="패스 128"/>
+        <path id="선_19" d="M0 0h34" class="cls-1" data-name="선 19" transform="translate(3052.312 910.508)"/>
+    </g>
+</svg>
