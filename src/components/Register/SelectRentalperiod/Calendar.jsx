@@ -1,10 +1,11 @@
 import React, { Component, Fragment} from 'react';
-import {DateRangePicker} from 'react-date-range';
+import DateRange from './DateRange';
 import styled from 'styled-components';
-import * as startOfDay from "date-fns";
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
 
+const styles={
+  color: "#000000",
+  textAlign: "center"
+}
 class Calendar extends Component {
     handleSelect(ranges){
         console.log(ranges);
@@ -24,11 +25,8 @@ class Calendar extends Component {
         return (
          <Fragment>
           <Span>대여 / 반납 날짜</Span>
-          <Calendarlocation>
-          <DateRangePicker
-            ranges={[selectionRange]}
-            onChange={this.handleSelect}
-          />
+          <Calendarlocation style={styles}>
+            <DateRange/>
           </Calendarlocation>
           </Fragment>
         )
