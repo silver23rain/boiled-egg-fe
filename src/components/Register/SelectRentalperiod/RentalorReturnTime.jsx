@@ -23,6 +23,7 @@ const Rental = styled.div`
     left: 1026px;
     font-size: 24px;
     color: #000000;
+    width: 200px;
 `;
 const Return = styled.div`
     position: absolute;
@@ -30,5 +31,6 @@ const Return = styled.div`
     left: 1026px;
     font-size: 24px;
     color: #000000;
+    width: 200px;
     `;
 export default RentalorReturnTime;

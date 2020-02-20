@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 
-
-   
 class RentalTimeInputBox extends Component {
     constructor(props){
         super(props);
@@ -15,6 +13,7 @@ class RentalTimeInputBox extends Component {
           isClickOn: true,
           start: "",
           end: "",
+          bgcolor:"#bcbcbc",
         };
     }
     onChangeColor = () => {
@@ -32,9 +31,13 @@ class RentalTimeInputBox extends Component {
         this.setState({
             start: message,
           });
+          this.state.start === "" || this.state.isToggleOn_start === false ? 
+            console.log("색 변경")
+          :
           this.setState(prevState => ({
             isToggleOn_start: !prevState.isToggleOn_start,
-          }));
+          }))
+          
         }
     handleChangeEnd = event => {
         const { value, maxLength } = event.target;
@@ -42,9 +45,13 @@ class RentalTimeInputBox extends Component {
         this.setState({
             end:message
           });
+          this.state.end === "" || this.state.isToggleOn_end === false ? 
+           console.log("색 변경")
+          :
           this.setState(prevState => ({
-            isToggleOn_end: !prevState.isToggleOn_end,
-          }));
+           isToggleOn_end: !prevState.isToggleOn_end,
+          }))
+          
         }
     render() {
         return (
@@ -53,11 +60,11 @@ class RentalTimeInputBox extends Component {
                 <Pm onClick={this.onChangeColor} isClickOn={this.state.isClickOn} disabled={this.state.isClickOn}>오후</Pm>
                 <Input/>
                 <StartInput type="number" maxLength="1" value={this.state.start} onChange={this.handleChangeStart} />
-                    <StartHour isToggleOn_start={this.state.isToggleOn_start}>시
+                    <StartHour isToggleOn_start={this.state.isToggleOn_start} onChange={this.handleChangeStart}>시
                         <Hypen>-</Hypen>
                     </StartHour>
                 <EndInput type='number'maxLength="1" value={this.state.end} onChange={this.handleChangeEnd} />
-                    <EndHour isToggleOn_end={this.state.isToggleOn_end}>시</EndHour>
+                    <EndHour isToggleOn_end={this.state.isToggleOn_end} onChange={this.handleChangeEnd}>시</EndHour>
             </Wrapper>
         );
     }
@@ -98,13 +105,12 @@ const Pm = styled.button`
   width: 122px;
   height: 68px;
   border: solid 2px #000000;
-  background-color: #ffffff;
   position: absolute;
   top:505px;
   left:1166px;
   font-size: 25px;
   outline:none;
-  background-color: ${props => props.isClickOn? "#ffde2b" : "#ffffff"  }
+  background-color: ${props => props.isClickOn?  "#ffde2b" :"#ffffff"  }
 
 `;
 const StartInput = styled.input`
