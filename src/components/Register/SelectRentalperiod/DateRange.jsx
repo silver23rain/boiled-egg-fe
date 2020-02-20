@@ -29,7 +29,7 @@ class Example extends React.Component {
   renderSelectionValue = () => {
     return (
       <div>
-        <div>Selection</div>
+      
         {this.state.value.start.format("YYYY-MM-DD")}
         {" - "}
         {this.state.value.end.format("YYYY-MM-DD")}

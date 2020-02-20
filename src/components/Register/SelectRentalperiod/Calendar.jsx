@@ -2,30 +2,15 @@ import React, { Component, Fragment} from 'react';
 import DateRange from './DateRange';
 import styled from 'styled-components';
 
-const styles={
-  color: "#000000",
-  textAlign: "center"
-}
+
+
 class Calendar extends Component {
-    handleSelect(ranges){
-        console.log(ranges);
-        // {
-        //   selection: {
-        //     startDate: [native Date Object],
-        //     endDate: [native Date Object],
-        //   }
-        // }
-      }
+    
       render(){
-        const selectionRange = {
-          startDate: new Date(),
-          endDate: new Date(),
-          key: 'selection',
-        }
         return (
          <Fragment>
           <Span>대여 / 반납 날짜</Span>
-          <Calendarlocation style={styles}>
+          <Calendarlocation>
             <DateRange/>
           </Calendarlocation>
           </Fragment>
@@ -33,9 +18,31 @@ class Calendar extends Component {
       }
 }
 const Calendarlocation = styled.div`
+    *{
+      color:#000000;
+      font-size: 20px;
+     
+      
+    }
+    .DateRangePicker{
+      width:540px;
+      height: 20px;
+  
+    }
+    
+    .DateRangePicker__MonthDates{
+      width: 500px;
+      height: 340px;
+    }
+    .DateRangePicker__MonthHeader{
+      left: 120px;
+    }
+   
+   
     position: absolute;
     top: 505px;
-    left: 486px;
+    left: 470px;
+    
 `;
 const Span = styled.div`
     width: 175px;
