@@ -32,9 +32,13 @@ class ReturnTimeInputBox extends Component {
         this.setState({
             start: message,
           });
+          this.state.start === "" || this.state.isToggleOn_start === false ? 
+            console.log("색 변경")
+          :
           this.setState(prevState => ({
             isToggleOn_start: !prevState.isToggleOn_start,
-          }));
+          }))
+          
         }
     handleChangeEnd = event => {
         const { value, maxLength } = event.target;
@@ -42,9 +46,13 @@ class ReturnTimeInputBox extends Component {
         this.setState({
             end:message
           });
+          this.state.end === "" || this.state.isToggleOn_end === false ? 
+           console.log("색 변경")
+          :
           this.setState(prevState => ({
-            isToggleOn_end: !prevState.isToggleOn_end,
-          }));
+           isToggleOn_end: !prevState.isToggleOn_end,
+          }))
+          
         }
     render() {
         return (
