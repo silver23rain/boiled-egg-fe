@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import appleFont from '../../font/AppleSDGothicNeoM.ttf';
-import omniFont from '../../font/210옴니고딕040.ttf';
+import appleFont from '../../../font/AppleSDGothicNeoM.ttf';
+import omniFont from '../../../font/210옴니고딕040.ttf';
 
 class ReturnPlaceInput extends Component {
     state = {text: ''};
@@ -29,7 +29,7 @@ const Identify = styled.button`
     position:absolute;
     top:259px;
     left:1352px;
-    width: 178px;
+    width: 186px;
     height: 44px;
     font-size: 20px;
     border:0;
@@ -54,7 +54,7 @@ const Input = styled.input`
     position:absolute;
     top: 313px; 
     left: 1026px;
-    width: 476px;
+    width: 485px;
     height: 78px;
     border: solid 2px #000000;
     background-color: #ffffff;

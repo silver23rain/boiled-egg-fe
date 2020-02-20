@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Checked from '../../img/checked.png';
+import Checked from '../../../img/checked.png';
 
 const Checkbox = ({className, checked, ...props}) => (
     <CheckboxContainer className={className}>

@@ -1,17 +1,21 @@
 import React, { Component, Fragment } from 'react';
 import {Link} from 'react-router-dom';
-import Header from '../Common/header';
-import GreenCircle from '../../img/GreenCircle.png';
-import YellowCircle from '../../img/YellowCircle.png';
+import Header from '../../Common/header';
+import GreenCircle from '../../../img/GreenCircle.png';
+import YellowCircle from '../../../img/YellowCircle.png';
 import styled from "styled-components";
 import SearchBar from './SearchBar';
-import Next from '../../img/next.png';
-import font from '../../font/210옴니고딕020.ttf';
+import Next from '../../../img/next.png';
+import font from '../../../font/210옴니고딕020.ttf';
 import BooksearchList from './BooksearchList';
-import Logo from "../Common/Logo";
+import Logo from "../../Common/Logo";
+//import SelectedBook from "./SelectedBook";
 import axios from 'axios';
+import SelectedBook from './SelectedBook';
 
 const http = 'http://boiled-egg-api.jaeyeonling.com:8080';
+const title = '{등록된 도서}';
+const registerInfo= JSON.parse(localStorage.getItem("regitserInfo"));
 
 class RegisterBook extends Component {
     constructor(props){
@@ -19,6 +23,7 @@ class RegisterBook extends Component {
         this.onClick = this.onClick.bind(this);
         this.state = {
           isToggleOn: true,   
+          isSelectOn: true,
         };
     }
     state={
@@ -43,15 +48,15 @@ class RegisterBook extends Component {
             this.setState((prevState) => ({
                 isToggleOn: !prevState.isToggleOn
               }));
-        }).catch(error=>{
+        }).catch(error=>{   
             console.log(error);
         });
         
         console.log(this.state.books);
     }
    
-    onClick(){
-        console.log("onclick");
+    onClick(thumbnail,title,authors,publishedAt){
+        console.log(thumbnail,title,authors,publishedAt);
     }
    
     render() {
@@ -75,6 +80,16 @@ class RegisterBook extends Component {
                         : <BooksearchList books={books}/>
                     }
                 </ResultBox>
+                    {
+                        (localStorage.getItem('regitserInfo') === undefined)
+                        ?   
+                            this.setState((prevState) => ({
+                            isSelectOn: !prevState.isSelectOn
+                          }))
+                          : 
+                         <SelectedBook/>
+
+                    }
                 <Link to="/selectbookgenre">
                     <Nextbtn/>
                 </Link>
@@ -82,7 +97,6 @@ class RegisterBook extends Component {
         );
     }
 }
-
 
 /*const BookList = styled.div`
     position: absolute;

@@ -63,6 +63,7 @@ class Bookgenre extends Component {
         );
     }
 }
+
 const Category = styled.div`
     color:#000000;
     font-size:26px;
@@ -80,6 +81,7 @@ const Label = styled.div`
 `;
 const FormCheck = styled.div`
     width:230px;
+    height: 1080px;
     & ${Label}:nth-child(2){
     position:relative;
     left: 980px;

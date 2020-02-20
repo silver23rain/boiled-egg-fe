@@ -5,9 +5,9 @@ import Login from "./LoginOrSignup/Login";
 import Header from "./Common/header";
 import Signup from "./LoginOrSignup/Signup";
 import ErrorPage from "./pages/ErrorPage";
-import RegisterBook from "./Register/RegisterBook";
-import SelectBookgenre from "./Register/SelectBookgenre";
-import RegisterRentalInfo from "./Register/RegisterRentalInfo";
+import RegisterBook from "./Register/RegisterBook/RegisterBook";
+import SelectBookgenre from "./Register/SelectCategory/SelectBookgenre";
+import SelectRentalperiod from "./Register/SelectRentalperiod/SelectRentalperiod";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <Route path="/signup" component={Signup} />
       <Route path="/registerBook" component={RegisterBook} />
       <Route path="/selectbookgenre" component={SelectBookgenre} />
-      <Route path="/rentalInfo" component={RegisterRentalInfo} />
+      <Route path="/rentalInfo" component={SelectRentalperiod} />
       <Route component={ErrorPage} />
     </Switch>
   );

@@ -1,15 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import styled from "styled-components";
-import Logo from "../Common/Logo";
-import Header from '../Common/header';
-import Prev from '../../img/prev.png';
-import font from '../../font/210옴니고딕040.ttf';
+import Logo from "../../Common/Logo";
+import Header from '../../Common/header';
+import Prev from '../../../img/prev.png';
+import font from '../../../font/210옴니고딕040.ttf';
 import RentalPlaceInput from './RentalPlaceInput';
 import ReturnPlaceInput from './ReturnPlaceInput';
 import Calendar from './Calendar';
-import omniFont from '../../font/210옴니고딕040.ttf';
+import omniFont from '../../../font/210옴니고딕040.ttf';
+import RentalTime from './RentalorReturnTime';
 
-class RegisterRentalInfo extends Component {
+class SelectRentalperiod extends Component {
     goBack = () =>{
         this.props.history.goBack();
     }
@@ -29,6 +30,7 @@ class RegisterRentalInfo extends Component {
                 <RentalPlaceInput/>
                 <ReturnPlaceInput/>
                 <Calendar/>
+                <RentalTime/>
                 <Prevbtn onClick={this.goBack}/>
                 <CompleteButton>등록완료</CompleteButton>
             </Fragment>
@@ -83,6 +85,7 @@ const TB = styled.div`
     color: #50231b;
     font-weight: bold;
     z-index:3;
+    width: 28px;
 
 `;
 const SearchTitle = styled.div`
@@ -110,4 +113,4 @@ const Span = styled.div`
     left: 520px;
     z-index:1;
     `;
-export default RegisterRentalInfo;
+export default SelectRentalperiod;

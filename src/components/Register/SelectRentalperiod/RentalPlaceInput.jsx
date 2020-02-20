@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import appleFont from '../../font/AppleSDGothicNeoM.ttf';
+import appleFont from '../../../font/AppleSDGothicNeoM.ttf';
 
 class RentalPlaceInput extends Component {
     state = {text: ''};

@@ -1,6 +1,6 @@
 import React,{Fragment, Component} from "react";
 import styled from "styled-components";
-import appleFont from '../../font/AppleSDGothicNeoM.ttf';
+import appleFont from '../../../font/AppleSDGothicNeoM.ttf';
 
 class SearchBar extends Component {
     state = {text: ''};
