@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
-
+import add from "../../../img/add.png";
 
    
 class ReturnTimeInputBox extends Component {
@@ -58,10 +58,19 @@ class ReturnTimeInputBox extends Component {
                     </StartHour>
                 <EndInput type='number'maxLength="1" value={this.state.end} onChange={this.handleChangeEnd} />
                     <EndHour isToggleOn_end={this.state.isToggleOn_end}>시</EndHour>
+                    <Addbtn/>
             </Wrapper>
         );
     }
 }
+const Addbtn = styled.img.attrs({
+  src: add
+})`
+  position: absolute;
+  left:1258px;
+  top:605px;
+
+`;
 const Wrapper = styled.div`
     *{
         color: #000000;
