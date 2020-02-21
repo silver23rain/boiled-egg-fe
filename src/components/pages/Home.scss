@@ -1,13 +1,24 @@
+// css 분리 필요
 @import "../../resources/common.scss";
 .Home {
   margin: 0;
   height: 100%;
   position: relative;
   scrollbar-width: none;
+  &_arrow {
+    position: absolute;
+    width: 110px;
+    height: 100px;
+    top: 0;
+    left: 830px;
+    mask: url(../../resources/images/mainPage/arrow.svg) no-repeat center;
+    background-color: #00b46a;
+    animation: Eldyd 0.7s ease-in 0s infinite alternate-reverse;
+  }
   .Tv {
     height: 100%;
     position: absolute;
-    left: 53.5px;
+    left: 155px;
     &_img-tv {
       position: absolute;
       width: 707px;
@@ -29,7 +40,7 @@
     position: absolute;
     flex-wrap: wrap;
     width: 507px;
-    left: 785px;
+    left: 886px;
     top: 85px;
     h1 {
       height: 141px;
@@ -88,12 +99,12 @@
   .Best {
     position: absolute;
     display: flex;
-    left: 910px;
+    left: 1013px;
     height: 60%;
     bottom: 0%;
     .Best_div {
       display: flex;
-      width: 725px;
+      width: 80vh;
       &-info {
         display: flex;
         position: absolute;
@@ -145,6 +156,32 @@
       }
     }
   }
+  &_div-location {
+    display: inline-block;
+    position: relative;
+    margin-left: 2190px;
+    margin-top: 30px;
+    img {
+      height: 36vh;
+    }
+    &-btn {
+      border: none;
+      position: absolute;
+      background: url("../../resources/images/mainPage/cassette_btn.png") no-repeat center;
+      background-size: contain;
+      width: 123.1px;
+      height: 123.1px;
+      top: 78.3px;
+      left: 80%;
+      font-family: OTOmniGothicM;
+      font-size: 21px;
+      line-height: 1.19;
+      letter-spacing: normal;
+      text-align: center;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
   &::-webkit-scrollbar {
     display: none;
   }
@@ -154,5 +191,14 @@ body,
 #root {
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@keyframes Eldyd {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(10px);
   }
 }
