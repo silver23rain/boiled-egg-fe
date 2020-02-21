@@ -61,9 +61,9 @@ const BooksearchList = props => {
                 {books}
             </Wrapper>
             <Total>총 {books.length}개의 결과</Total>
-            {
+            {/*{
             int === panel?  <BookPanel/> : "none" 
-            }
+            }*/}
            
         </Fragment>
     );

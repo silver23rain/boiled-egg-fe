@@ -6,7 +6,7 @@ const Checkbox = ({className, checked, ...props}) => (
     <CheckboxContainer className={className}>
         <HiddenCheckbox checked={checked} {...props}/>
         <StyledCheckbox checked={checked}>
-           <Icon viewBox="0 0 24 24"/>
+           <Icon viewBox="0 0 38 38"/>
         </StyledCheckbox>
     </CheckboxContainer>
 )
@@ -23,14 +23,15 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   width: 1px;
 `;
 
-const Icon = styled.img.attrs({
-    src: Checked ,
-  })`
+const Icon = styled.div`
+    opacity: 0.8;
+    width: 38px;
+    height: 38px;
     position: absolute;
-    left: 28.1px;
-    top: 43.2px;
+    left: 7px;
+    top: 7px;
     z-index: 4;
-    
+    background-color:#ff2e41;
 `;
 const StyledCheckbox = styled.div`
     display:inline-block;
@@ -54,7 +55,7 @@ const CheckboxContainer = styled.div`
     top: 50px;
     left: -100px;
     z-index:5; 
-
+    
 `;
 
 export default Checkbox;
