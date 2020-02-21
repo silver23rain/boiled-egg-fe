@@ -52,6 +52,7 @@ class RegisterBook extends Component {
             this.setState((prevState) => ({
                 isToggleOn: true
               }));
+            console.log("검색결과 없음:"+error);
         });
         
         console.log(this.state.books);

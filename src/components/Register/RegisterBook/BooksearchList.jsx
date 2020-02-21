@@ -1,9 +1,9 @@
-import React,{Fragment} from 'react';
+import React,{Fragment, Component, useState} from 'react';
 import styled from 'styled-components';
 import font from '../../../font/210옴니고딕040.ttf';
 
+
 function onClick(thumbnail,title,authors,publishedAt,isbn){
-   
     try {
         console.log(thumbnail,title,authors,publishedAt,isbn);
         const publishY = publishedAt.substring(0,4);
@@ -28,10 +28,29 @@ function onClick(thumbnail,title,authors,publishedAt,isbn){
 
 const BooksearchList = props => {
     
-    const books = props.books.map((book, index)=>{
+    // function changeColor() {
+    //     setColor([
+    //         ...props.books,
+    //         {
+    //             index: books.index,
+    //             bgColor: "#bcbcbc"
+    //         }
+    //     ])
+    // }
+    const [ int, setIndex] = useState(null);
 
+    const books = props.books.map((book, index)=>{
+       // const [ bgcolor, setColor] = useState("red");
+        function changeColor(i) {
+          //  setColor("white");
+            setIndex(i);
+          }
         return (
-            <Book key={index} title={book.title} onClick={() => onClick(book.thumbnail,book.title,book.authors,book.publishedAt,book.isbn)}> 
+            <Book 
+            key={index} title={book.title} 
+            onClick={() => {onClick(book.thumbnail,book.title,book.authors,book.publishedAt,book.isbn); changeColor(index);} }
+            style={{backgroundColor : int=== index? "red": "white"}}
+            > 
                 <Image src={book.thumbnail} alt="img"/>
                 <Title>{book.title}</Title>
                 <Author>{book.authors}지음 / {book.publisher}</Author>
@@ -51,6 +70,7 @@ const BooksearchList = props => {
         </Fragment>
     );
 }
+
 const Total = styled.div`
     position: absolute;
     top: 1033.5px;
@@ -62,7 +82,7 @@ const Total = styled.div`
 `; 
 const Book = styled.div`
     height: 160px;
-    
+    //color: ${props => props.isSelectOn? "#ffffff" : "707070"} ;
 `;
 const Author = styled.div`
     font-size: 22px;

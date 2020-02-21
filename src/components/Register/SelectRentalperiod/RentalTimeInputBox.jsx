@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 import add from "../../../img/add.png";
+
 class RentalTimeInputBox extends Component {
     constructor(props){
         super(props);
@@ -13,9 +14,10 @@ class RentalTimeInputBox extends Component {
           isClickOn: true,
           start: "",
           end: "",
-          bgcolor:"#bcbcbc",
+     
         };
     }
+    
     onChangeColor = () => {
         this.setState(prevState => ({
             isClickOn: !prevState.isClickOn,
