@@ -49,12 +49,13 @@ const BooksearchList = props => {
             <Book 
             key={index} title={book.title} 
             onClick={() => {onClick(book.thumbnail,book.title,book.authors,book.publishedAt,book.isbn); changeColor(index);} }
-            style={{backgroundColor : int=== index? "red": "white"}}
+            style={{backgroundColor : int=== index? "white": "#fffbeb", border: int=== index? "solid 4px #ff2e41" : "none", color: int === index? "#50231b": "#000000"
+                    , borderStyle: int=== index? "dotted" : 'none'}}
             > 
                 <Image src={book.thumbnail} alt="img"/>
-                <Title>{book.title}</Title>
-                <Author>{book.authors}지음 / {book.publisher}</Author>
-                <Publishat>{book.publishedAt}</Publishat>
+                <Title style={{color: int === index? "#50231b": "#000000"}}>{book.title}</Title>
+                <Author style={{color: int === index? "#50231b": "#000000"}}>{book.authors}지음 / {book.publisher}</Author>
+                <Publishat style={{color: int === index? "#50231b": "#000000"}}>{book.publishedAt}</Publishat>
             </Book>
 
            
