@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/boiled-egg-fe/precache-manifest.9501ec47a597bdfd133b769729e6e98e.js"
+  "/boiled-egg-fe/precache-manifest.46b7c09eea46b213813567c795d0a79d.js"
 );
 
 self.addEventListener('message', (event) => {
