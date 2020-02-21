@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "419eae975d1182cfa680104a8582cd84",
+    "revision": "5adb12d8d4ab2d0a86c956a2f99f4baf",
     "url": "/boiled-egg-fe/index.html"
   },
   {
-    "revision": "f357dad2b1ddf4339c27",
+    "revision": "455a87870c5cede13cb8",
     "url": "/boiled-egg-fe/static/css/main.76607f49.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/boiled-egg-fe/static/js/2.b7329d22.chunk.js.LICENSE"
   },
   {
-    "revision": "f357dad2b1ddf4339c27",
-    "url": "/boiled-egg-fe/static/js/main.a2a5f6d9.chunk.js"
+    "revision": "455a87870c5cede13cb8",
+    "url": "/boiled-egg-fe/static/js/main.1743a5e2.chunk.js"
   },
   {
     "revision": "684cb4843058b23da4dc",
