@@ -46,10 +46,12 @@ class RegisterBook extends Component {
             console.log(response.data);
             this.setState({books: response.data})
             this.setState((prevState) => ({
-                isToggleOn: !prevState.isToggleOn
+                isToggleOn: false
               }));
         }).catch(error=>{   
-            console.log(error);
+            this.setState((prevState) => ({
+                isToggleOn: true
+              }));
         });
         
         console.log(this.state.books);
@@ -57,6 +59,7 @@ class RegisterBook extends Component {
    
     onClick(thumbnail,title,authors,publishedAt){
         console.log(thumbnail,title,authors,publishedAt);
+        console.log("hi")
     }
    
     render() {
