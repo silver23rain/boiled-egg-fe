@@ -5,12 +5,32 @@ import tv from "../../resources/images/mainPage/tv.png";
 import tvLight from "../../resources/images/mainPage/tv_light.png";
 import logoSymbol from "../../resources/images/mainPage/logo_symbol.png";
 import cassette from "../../resources/images/mainPage/cassette.png";
+import bookSample from "../../resources/images/mainPage/book_sample.png";
+import bookSample2 from "../../resources/images/mainPage/book_sample2.png";
+import bookSample3 from "../../resources/images/mainPage/book_sample3.png";
 import "./Home.scss";
 import { HomeBook } from "../molecules";
 import { LocationRegister } from "../organisms";
 const keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 const Home = () => {
 	const [visible, setVisible] = useState(false);
+	const [newlyBook, setNewlyBook] = useState("");
+	useEffect(() => {
+		const fetchData = async () => {
+			const result = await axios.get(
+				`http://boiled-egg-api.jaeyeonling.com:8080/books`,
+				{
+					headers: {
+						"Content-Type": "application/json",
+						Accept: "application/json"
+					}
+				}
+			);
+			console.log(result);
+			// setData(result.data);
+		};
+		fetchData();
+	}, [newlyBook]);
 
 	const preventDefaultForScrollKeys = e => {
 		if (keys[e.keyCode]) {
@@ -86,18 +106,21 @@ const Home = () => {
 			<div className="Best">
 				<HomeBook
 					color="red"
+					imgUrl={bookSample}
 					blockTitle={"가장\n인기있는\n도서"}
-					bookTitle={"무례 어쩌구"}
+					bookTitle={"무례한 사람에게 웃으며 대처하는 법"}
 				/>
 				<HomeBook
 					color="green"
+					imgUrl={bookSample2}
 					blockTitle={"나와\n가까운\n도서"}
-					bookTitle={"무례 어쩌구"}
+					bookTitle={"죽고\n싶지만\n떡볶이는\n먹고\n싶어"}
 				/>
 				<HomeBook
 					color="yellow"
+					imgUrl={bookSample3}
 					blockTitle={"방금\n올라온\n도서"}
-					bookTitle={"무례 어쩌구"}
+					bookTitle={"나는\n나로\n살기로\n했다"}
 				/>
 			</div>
 			{/* <div className="Home_arrow"></div> */}
