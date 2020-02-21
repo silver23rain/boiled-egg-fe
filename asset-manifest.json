@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/boiled-egg-fe/static/css/main.76607f49.chunk.css",
-    "main.js": "/boiled-egg-fe/static/js/main.1743a5e2.chunk.js",
-    "main.js.map": "/boiled-egg-fe/static/js/main.1743a5e2.chunk.js.map",
+    "main.js": "/boiled-egg-fe/static/js/main.edbb1778.chunk.js",
+    "main.js.map": "/boiled-egg-fe/static/js/main.edbb1778.chunk.js.map",
     "runtime-main.js": "/boiled-egg-fe/static/js/runtime-main.db843e52.js",
     "runtime-main.js.map": "/boiled-egg-fe/static/js/runtime-main.db843e52.js.map",
     "static/js/2.b7329d22.chunk.js": "/boiled-egg-fe/static/js/2.b7329d22.chunk.js",
     "static/js/2.b7329d22.chunk.js.map": "/boiled-egg-fe/static/js/2.b7329d22.chunk.js.map",
     "index.html": "/boiled-egg-fe/index.html",
-    "precache-manifest.477e57b1452298bdfcc4b63341b3e041.js": "/boiled-egg-fe/precache-manifest.477e57b1452298bdfcc4b63341b3e041.js",
+    "precache-manifest.23e032a824775a6f840ab8b6aaea1faa.js": "/boiled-egg-fe/precache-manifest.23e032a824775a6f840ab8b6aaea1faa.js",
     "service-worker.js": "/boiled-egg-fe/service-worker.js",
     "static/css/main.76607f49.chunk.css.map": "/boiled-egg-fe/static/css/main.76607f49.chunk.css.map",
     "static/js/2.b7329d22.chunk.js.LICENSE": "/boiled-egg-fe/static/js/2.b7329d22.chunk.js.LICENSE",
@@ -39,6 +39,6 @@
     "static/js/runtime-main.db843e52.js",
     "static/js/2.b7329d22.chunk.js",
     "static/css/main.76607f49.chunk.css",
-    "static/js/main.1743a5e2.chunk.js"
+    "static/js/main.edbb1778.chunk.js"
   ]
 }
