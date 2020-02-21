@@ -1,9 +1,9 @@
 import React,{Fragment, Component, useState} from 'react';
 import styled from 'styled-components';
 import font from '../../../font/210옴니고딕040.ttf';
+import BookPanel from "./BookPanel"
 
-
-function onClick(thumbnail,title,authors,publishedAt,isbn){
+export function isClick(thumbnail,title,authors,publishedAt,isbn){
     try {
         console.log(thumbnail,title,authors,publishedAt,isbn);
         const publishY = publishedAt.substring(0,4);
@@ -28,27 +28,20 @@ function onClick(thumbnail,title,authors,publishedAt,isbn){
 
 const BooksearchList = props => {
     
-    // function changeColor() {
-    //     setColor([
-    //         ...props.books,
-    //         {
-    //             index: books.index,
-    //             bgColor: "#bcbcbc"
-    //         }
-    //     ])
-    // }
-    const [ int, setIndex] = useState(null);
+    const [int, setIndex] = useState(null);
+    const [panel, setPanel] = useState(null);
 
     const books = props.books.map((book, index)=>{
-       // const [ bgcolor, setColor] = useState("red");
         function changeColor(i) {
-          //  setColor("white");
             setIndex(i);
+            setPanel(i);
           }
+
         return (
+       
             <Book 
             key={index} title={book.title} 
-            onClick={() => {onClick(book.thumbnail,book.title,book.authors,book.publishedAt,book.isbn); changeColor(index);} }
+            onClick={() => {isClick(book.thumbnail,book.title,book.authors,book.publishedAt,book.isbn); changeColor(index);} }
             style={{backgroundColor : int=== index? "white": "#fffbeb", border: int=== index? "solid 4px #ff2e41" : "none", color: int === index? "#50231b": "#000000"
                     , borderStyle: int=== index? "dotted" : 'none'}}
             > 
@@ -57,8 +50,8 @@ const BooksearchList = props => {
                 <Author style={{color: int === index? "#50231b": "#000000"}}>{book.authors}지음 / {book.publisher}</Author>
                 <Publishat style={{color: int === index? "#50231b": "#000000"}}>{book.publishedAt}</Publishat>
             </Book>
-
-           
+     
+         
         );
     });
 
@@ -68,6 +61,10 @@ const BooksearchList = props => {
                 {books}
             </Wrapper>
             <Total>총 {books.length}개의 결과</Total>
+            {
+            int === panel?  <BookPanel/> : "none" 
+            }
+           
         </Fragment>
     );
 }

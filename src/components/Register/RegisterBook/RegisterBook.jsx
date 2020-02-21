@@ -20,7 +20,6 @@ const registerInfo= JSON.parse(localStorage.getItem("regitserInfo"));
 class RegisterBook extends Component {
     constructor(props){
         super(props);
-        this.onClick = this.onClick.bind(this);
         this.state = {
           isToggleOn: true,   
           isSelectOn: true,
@@ -58,11 +57,7 @@ class RegisterBook extends Component {
         console.log(this.state.books);
     }
    
-    onClick(thumbnail,title,authors,publishedAt){
-        console.log(thumbnail,title,authors,publishedAt);
-        console.log("hi")
-    }
-   
+  
     render() {
         const {books=[]} = this.state;
         return (
@@ -84,16 +79,7 @@ class RegisterBook extends Component {
                         : <BooksearchList books={books}/>
                     }
                 </ResultBox>
-                    {
-                        (localStorage.getItem('regitserInfo') === undefined)
-                        ?   
-                            this.setState((prevState) => ({
-                            isSelectOn: !prevState.isSelectOn
-                          }))
-                          : 
-                         <SelectedBook/>
-
-                    }
+                  
                 <Link to="/selectbookgenre">
                     <Nextbtn/>
                 </Link>
